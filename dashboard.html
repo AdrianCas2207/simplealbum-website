@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        #uploadSection,
+        #albumSection,
+        #usersSection,
+        #allUploadsSection{
+            display:none;
+        }
+    </style>
+</head>
+<body onload="loadUser()">
+
+<header>
+    <h2>Dashboard</h2>
+
+    <div class="header-right">
+        <span id="headerWelcome"></span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<div class="dashboard-wrapper">
+
+    <div class="sidebar">
+        <button onclick="showUpload()">Upload</button>
+        <button onclick="showAlbum()">Album</button>
+
+        <button id="usersBtn" style="display:none;" onclick="showUsers()">Users</button>
+        <button id="uploadsBtn" style="display:none;" onclick="showAllUploads()">User Uploads</button>
+    </div>
+
+    <div class="main-content">
+
+        <div id="uploadSection">
+            <h2>Upload Memory</h2>
+            <input type="file" id="imageInput">
+            <button onclick="uploadImage()">Upload</button>
+        </div>
+
+        <div id="albumSection">
+            <div class="section-header">
+                <h2>Album</h2>
+            </div>
+            <div id="memoryGrid"></div>
+        </div>
+
+        <div id="usersSection">
+            <h2>Users Management</h2>
+            <div id="usersList"></div>
+        </div>
+
+        <div id="allUploadsSection">
+            <h2>All User Uploads</h2>
+            <div id="allUploadsList"></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="slideshowModal" class="modal">
+    <span class="close" onclick="closeSlide()">×</span>
+    <img id="slideImg">
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
